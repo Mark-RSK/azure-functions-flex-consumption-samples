@@ -19,7 +19,7 @@ foreach ($tool in $tools) {
     exit 1
   }
 }
-
+Get-ChildItem .\ -include bin,obj -Recurse | ForEach-Object { Remove-Item $_.FullName -Force -Recurse }
 func azure functionapp publish $env:AZURE_FUNCTION_NAME --dotnet-isolated
 
 Write-Host "Deployment completed."

@@ -19,6 +19,7 @@ for cmd in "${commands[@]}"; do
   fi
 done
 
+find . -type d \( -name bin -o -name obj \) -exec rm -rf {} +
 func azure functionapp publish $AZURE_FUNCTION_NAME --dotnet-isolated
 
 echo "Deployed successfully."
